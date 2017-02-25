@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Welcome! #{@user.name}"
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to received_messages_path
     else
       render 'new'
     end

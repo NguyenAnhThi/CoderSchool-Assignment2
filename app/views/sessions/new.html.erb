@@ -1,11 +1,23 @@
-<%= console %>
-<h1>Sign In</h1>
-<%= form_tag sessions_path do %>
-    <div class="form-group">
-      <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'email' %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <h3 class="card-header text-primary"> Sign In</h3>
+      <div class="card-block">
+        <%= form_tag sessions_path do %>
+            <div class="form-group">
+              <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'email' %>
+            </div>
+            <div class="form-group">
+              <%= password_field_tag :password, nil, class: 'form-control', placeholder: 'password' %>
+            </div>
+
+            </div>
+            <div class="card-footer">
+              <div class="text-right">
+                <%= submit_tag "Sign In", class: 'btn btn-primary', data: {disable_with: "signing in..."} %>
+              </div>
+        <% end %>
+            </div>
     </div>
-    <div class="form-group">
-      <%= password_field_tag :password, nil, class: 'form-control', placeholder: 'password' %>
-    </div>
-    <%= submit_tag "Sign In", class: 'btn btn-primary', data: {disable_with: "signing in..."} %>
-<% end %>
+  </div>
+</div>

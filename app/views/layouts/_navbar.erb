@@ -2,26 +2,28 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="<%= root_path %>">CoderSchool Messenger</a>
+  <a class="navbar-brand" href="<%= root_path %>">Coder Messenger</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+    <ul class="navbar-nav text-right">
       <% if current_user %>
           <li class="nav-item">
-            <%= link_to "Log out #{current_user}", log_out_path, method: 'delete', class: 'nav-link' %>
-          </li>
-      <% else %>
-          <li class="nav-item">
-            <%= link_to "Sign In", new_session_path, class: 'nav-link' %>
+            <%= link_to "Welcome! #{current_user}", edit_user_path(current_user.id), class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign Up", new_user_path, class: 'nav-link' %>
+            <%= link_to "Inbox", received_messages_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Sent", sent_messages_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Compose", new_message_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log out", log_out_path, method: 'delete', class: 'nav-link',data: {confirm: 'Are you sure?'} %>
+          </li>
+
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

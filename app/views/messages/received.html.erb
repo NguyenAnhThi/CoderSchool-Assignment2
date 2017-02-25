@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <h3 class="card-header"> Inbox</h3>
+      <div class="card-block">
+        <% if @messages.count > 0 %>
+            <table class="table table-striped table-hover">
+              <thead class="table-inverse">
+              <tr>
+                <th> From</th>
+                <th> Time</th>
+                <th> Read at</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @messages.each do |message| %>
+                  <% if !message.read? %>
+                      <tr data-href="<%= message_path(message.id) %>" style="cursor: pointer !important;">
+                        <td> <%= User.find_by_id(message.sender_id).email %> </td>
+                        <td> <%= message.created_at.strftime("%H:%M - %d %b %Y") %> </td>
+                        <td> Unread</td>
+                      </tr>
+                  <% else %>
+                      <tr>
+                        <td> <%= User.find_by_id(message.sender_id).email %> </td>
+                        <td> <%= message.created_at.strftime("%H:%M - %d %b %Y") %> </td>
+                        <td> <%= message.read_at.strftime("%H:%M - %d %b %Y") %> </td>
+                      </tr>
+                  <% end %>
+              <% end %>
+              </tbody>
+            </table>
+        <% else %>
+            <i class="text-info">There is no message!</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $('tr[data-href]').on("click", function () {
+        document.location = $(this).data('href');
+    });
+</script>

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <h3 class="card-header"> <%= @message.sender.name %> @ <%= @message.created_at.strftime("%H:%M - %d %b %Y") %> </h3>
+      <div class="card-block">
+        <p class="card-text"> <%= @message.body %> </p>
+      </div>
+      <div class="card-footer" style="text-align: right">
+        <%= link_to 'Back', received_messages_path , class:'btn btn-primary'  %>
+      </div>
+    </div>
+  </div>
+</div>
