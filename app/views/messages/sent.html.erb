@@ -18,7 +18,7 @@
                     <td> <%= User.find_by_id(message.recipient_id).email %> </td>
                     <td> <%= message.created_at.strftime("%H:%M - %d %b %Y") %> </td>
                     <% if Message.find_by_id(message.id).read_at.nil? %>
-                        <td><strong> Unread </strong></td>
+                        <td><strong class="text-info"> Unread </strong></td>
                     <% else %>
                         <td> <%= message.read_at.strftime("%H:%M - %d %b %Y") %> </td>
                     <% end %>

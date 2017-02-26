@@ -1,14 +1,9 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="card">
-      <h3 class="card-header text-primary"> Sign Up</h3>
-      <div class="card-block">
-        <%= form_for @user do |f| %>
-            <% if @user.errors.any? %>
-                <div class="alert alert-danger">
-                  <%= @user.errors.full_messages.to_sentence %>
-                </div>
-            <% end %>
+      <h3 class="card-header "> Register</h3>
+      <%= form_for @user do |f| %>
+          <div class="card-block">
             <div class="form-group">
               <%= f.label :name %>
               <%= f.text_field :name, class: 'form-control' %>
@@ -21,14 +16,12 @@
               <%= f.label :password %>
               <%= f.password_field :password, class: 'form-control' %>
             </div>
-
-      </div>
-      <div class="card-footer">
-        <div class="text-right">
-          <%= f.submit "Sign Up", class: 'btn btn-primary' %>
-        </div>
-        <% end %>
-      </div>
+          </div>
+          <div class="card-footer text-right">
+            <%= f.submit "Register", class: 'btn btn-primary' %>
+            <%= link_to "Back", root_path, class: 'btn btn-outline-primary' %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

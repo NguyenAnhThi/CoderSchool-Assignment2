@@ -18,7 +18,7 @@
                       <tr data-href="<%= message_path(message.id) %>" style="cursor: pointer !important;">
                         <td> <%= User.find_by_id(message.sender_id).email %> </td>
                         <td> <%= message.created_at.strftime("%H:%M - %d %b %Y") %> </td>
-                        <td> Unread</td>
+                        <td class="text-info"><b>Unread</b></td>
                       </tr>
                   <% else %>
                       <tr>

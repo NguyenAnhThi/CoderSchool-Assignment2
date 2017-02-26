@@ -1,1 +1,26 @@
 @import "bootstrap";
+
+.card-header{
+  color: green;
+  border-color: green;
+}
+
+.container{
+  margin-bottom: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.24);
+  box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.24);
+}
+
+.nav-item{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+body {
+  background: url('bg.jpg') center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

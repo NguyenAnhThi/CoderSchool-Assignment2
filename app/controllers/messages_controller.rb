@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
-
   def new
-    @users = User.all
     @message = Message.new
+    @friends = current_user.friends
   end
 
   def show

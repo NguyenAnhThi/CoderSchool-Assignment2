@@ -1,3 +1,12 @@
-<h1>CS Messanger</h1>
-<%= link_to "Sign Up", new_user_path, class: 'btn btn-secondary' %>
-<%= link_to "Sign In", new_session_path, class: 'btn btn-secondary' %>
+<div class="card" style=" background-color: transparent">
+  <div class="card-block  text-center" style="background: transparent">
+    <img class="card-img-top" width="200" height="190" src="<%= image_path('tiny.png') %>" alt="tiny image">
+    <h2 class="card-title text-uppercase" style="color: white;">Welcome to Tiny Messenger!</h2>
+    <% if current_user %>
+        <h4 class="card-title" style="color: white"><%= current_user.email %></h4>
+    <% else %>
+        <%= link_to "Register", new_user_path, class: 'btn btn-primary' %>
+        <%= link_to "Sign In", new_session_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
